@@ -20,13 +20,11 @@ word VARCHAR2(20),
 definition VARCHAR2(250),
 language VARCHAR2(20),
 partOfSpeech VARCHAR2(20),
-pronunciation VARCHAR2(50),
 PRIMARY KEY (word)
 );
 
 CREATE TABLE Reader (
 username VARCHAR2(20),
-password VARCHAR2(50),
 PRIMARY KEY (username)
 );
 
@@ -41,7 +39,6 @@ FOREIGN KEY (word) REFERENCES Word
 
 CREATE TABLE Learns (
 learnedDate DATE,
-sentence VARCHAR2(20),
 username VARCHAR2(20),
 word VARCHAR2(20),
 PRIMARY KEY (word, username),
@@ -60,7 +57,22 @@ GRANT ALL PRIVILEGES ON Learns TO Public;
 
 ----------------------- INSERT STATEMENTS ----------------------- 
 
-NSERT 
+INSERT 
 INTO   Material (title, author, type)
-VALUES ('The Knife of Never Letting Go', 'Patrick Ness', "YA Novel");
+VALUES ('The Knife of Never Letting Go', 'Patrick Ness', 'YA Novel');
 
+INSERT 
+INTO   Word (word, definition, language, partOfSpeech)
+VALUES ('weir', 'a small dam in a river or stream', 'English', 'noun');
+
+INSERT
+INTO Reader (username)
+VALUES ('kitkathrina');
+
+INSERT
+INTO Contains (sentence, title, word)
+VALUES ('Viola says as we stop for a quick lunch, leaning on some rocks overlooking a natural weir', 'The Knife of Never Letting Go', 'weir');
+
+INSERT
+INTO Learns (userame, word, learnedDate)
+VALUES ('kitkathrina', 'weir', )
