@@ -54,3 +54,7 @@ FOREIGN KEY (word) REFERENCES Word
 );
 
 GRANT ALL PRIVILEGES ON Learns TO Public;
+
+NSERT 
+INTO   Material (title, author, type)
+VALUES ('The Knife of Never Letting Go', 'Patrick Ness', "YA Novel");
